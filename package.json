@@ -1,0 +1,14 @@
+{
+  "name": "graphql-try",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd server && yarn dev && cd ../client && yarn start"
+  }
+}
