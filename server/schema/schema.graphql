@@ -33,6 +33,7 @@ input LoginInput {
 
 type Mutation {
   createUser(input: UserInput): User
+  deleteUser(id: ID): User
 }
 
 type Query {

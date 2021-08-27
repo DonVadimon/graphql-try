@@ -2,7 +2,7 @@ const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
 const { schema } = require('./schema');
-const { users } = require('./mocks/users');
+let { users } = require('./mocks/users');
 const { posts } = require('./mocks/posts');
 
 const app = express();
@@ -34,6 +34,11 @@ const root = {
     },
     login: ({ input }) =>
         users.find(({ username, password }) => username === input.username && password === input.password),
+    deleteUser: ({ id }) => {
+        const deletedUser = users.find((user) => Number(user.id) === Number(id));
+        users = users.filter((user) => Number(user.id) !== Number(id));
+        return deletedUser;
+    },
 };
 
 app.use(

@@ -8,5 +8,10 @@ export const Global = createGlobalStyle`
             sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        box-sizing: border-box;
     }
 `;
+
+export interface IErrorStyles {
+    error?: boolean;
+}
