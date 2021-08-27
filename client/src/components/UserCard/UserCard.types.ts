@@ -1,4 +1,4 @@
-import { IUser } from "types/User.types";
+import { IUser } from 'types/User.types';
 
 export interface IUserCardProps {
     user: IUser;

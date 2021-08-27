@@ -29,7 +29,6 @@ export const NewUserForm = () => {
                     input: values,
                 },
             })
-                .then(({ data }) => console.log(data))
                 .then(() => form.reset())
                 .catch((err) => console.error(err));
         },
