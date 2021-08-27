@@ -9,6 +9,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
+        "start": "node server",
         "rmall": "rm -rf node_modules && rm -rf ./client/node_modules && rm -rf ./server/node_modules",
         "lint": "cd server && yarn lint && cd ../client && yarn lint",
         "lint-fix": "cd server && yarn lint-fix && cd ../client && yarn lint-fix",
