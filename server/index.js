@@ -8,7 +8,7 @@ const { posts } = require('./mocks/posts');
 const app = express();
 app.use(cors());
 
-const PORT = 8080;
+const PORT = 8000;
 
 const root = {
     getAllUsers: () => users,
@@ -32,6 +32,8 @@ const root = {
         posts.push(post);
         return post;
     },
+    login: ({ input }) =>
+        users.find(({ username, password }) => username === input.username && password === input.password),
 };
 
 app.use(
@@ -43,5 +45,7 @@ app.use(
     }),
 );
 
-// eslint-disable-next-line no-console
-app.listen(PORT, () => console.log(`Server started on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+    // eslint-disable-next-line no-console
+    console.log(`Server started on http://localhost:${PORT}, see graphiql on http://localhost:${PORT}/graphql`),
+);

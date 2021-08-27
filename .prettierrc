@@ -14,7 +14,7 @@
     "useTabs": false,
     "overrides": [
         {
-            "files": ["**/*.json", ".prettierrc", ".eslintrc"],
+            "files": ["**/*.json", ".prettierrc", ".eslintrc", "**/*.(graphql|gql)"],
             "options": {
                 "parser": "json"
             }
