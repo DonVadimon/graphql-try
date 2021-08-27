@@ -1,20 +1,22 @@
 import React from 'react';
 import { Logo } from 'assets';
 
-import './App.css';
+import { AppLink, AppLogo, Container, Header } from './App.styles';
 
 export const App = () => {
     return (
-        <div className="App">
-            <header className="App-header">
-                <Logo className="App-logo" />
+        <Container>
+            <Header>
+                <AppLogo>
+                    <Logo />
+                </AppLogo>
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
                 </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+                <AppLink href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
                     Learn React
-                </a>
-            </header>
-        </div>
+                </AppLink>
+            </Header>
+        </Container>
     );
 };
