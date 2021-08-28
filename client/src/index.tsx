@@ -7,7 +7,10 @@ import { Global } from './global.styles';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-    uri: process.env.IS_REMOTE ? 'https://graphql-try-server.herokuapp.com/graphql' : 'http://localhost:8000/graphql',
+    uri:
+        process.env.NODE_ENV === 'production'
+            ? 'https://graphql-try-server.herokuapp.com/graphql'
+            : 'http://localhost:8000/graphql',
     cache: new InMemoryCache(),
 });
 
