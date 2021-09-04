@@ -1,34 +1,33 @@
 import React, { useCallback } from 'react';
 import { useMutation } from '@apollo/client';
 import { Trash } from 'assets';
-import { DELETE_USER } from 'GraphQl/mutations/user';
+import { DELETE_POST } from 'GraphQl/mutations/posts';
 
 import { DeleteButton } from 'components/DeleteButton';
 
-import { Container } from './UserCard.styles';
-import { IUserCardProps } from './UserCard.types';
+import { Container, Content, Title } from './PostCard.styles';
+import { IPostCardProps } from './PostCard.types';
 
-export const UserCard: React.FC<IUserCardProps> = ({ user: { username, age, id } }) => {
-    const [deleteUser] = useMutation(DELETE_USER);
+export const PostCard: React.FC<IPostCardProps> = ({ post: { title, content, id } }) => {
+    const [deletePost] = useMutation(DELETE_POST);
 
     const onDelete = useCallback(
         () =>
-            deleteUser({
+            deletePost({
                 variables: {
                     id,
                 },
             }),
-        [deleteUser, id],
+        [deletePost, id],
     );
 
     return (
         <Container>
-            <h1>
-                {username}, {age} лет. Пошлый
-            </h1>
             <DeleteButton onClick={onDelete}>
                 <Trash />
             </DeleteButton>
+            <Title>{title}</Title>
+            <Content>{content}</Content>
         </Container>
     );
 };

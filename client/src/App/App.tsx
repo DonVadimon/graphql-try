@@ -1,18 +1,32 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Index } from 'pages/Index';
+import { Posts } from 'pages/Posts';
 
-import { NewUserForm } from 'components/NewUserForm';
-import { UserList } from 'components/UserList';
+import { Navbar } from 'components/Navbar';
 
-import { AppLink, Container, Header } from './App.styles';
+import { Container } from './App.styles';
 
 export const App = () => (
-    <Container>
-        <Header>
-            <NewUserForm />
-            <UserList />
-            <AppLink href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                Learn React
-            </AppLink>
-        </Header>
-    </Container>
+    <Router>
+        <Container>
+            <Navbar />
+            <Switch>
+                <Route exact path="/">
+                    <Index />
+                </Route>
+                <Route path="/posts">
+                    <Posts />
+                </Route>
+                <Route path="/user/:userid">
+                    <h1>user by id</h1>
+                    <Switch>
+                        <Route path="/user/:userid/posts">
+                            <h1>user posts</h1>
+                        </Route>
+                    </Switch>
+                </Route>
+            </Switch>
+        </Container>
+    </Router>
 );

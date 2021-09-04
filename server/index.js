@@ -3,7 +3,7 @@ const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
 const { schema } = require('./schema');
 let { users } = require('./mocks/users');
-const { posts } = require('./mocks/posts');
+let { posts } = require('./mocks/posts');
 
 const app = express();
 app.use(cors());
@@ -33,6 +33,11 @@ const root = {
         };
         posts.push(post);
         return post;
+    },
+    deletePost: ({ id }) => {
+        const deletedPost = posts.find((post) => Number(post.id) === Number(id));
+        posts = posts.filter((post) => Number(post.id) !== Number(id));
+        return deletedPost;
     },
     login: ({ input }) =>
         users.find(({ username, password }) => username === input.username && password === input.password),

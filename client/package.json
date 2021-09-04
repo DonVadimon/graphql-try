@@ -4,18 +4,12 @@
     "private": true,
     "dependencies": {
         "@apollo/client": "^3.3.20",
-        "@testing-library/jest-dom": "^5.11.4",
-        "@testing-library/react": "^11.1.0",
-        "@testing-library/user-event": "^12.1.10",
-        "@types/jest": "^26.0.15",
-        "@types/node": "^12.0.0",
-        "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0",
         "final-form": "^4.20.2",
         "graphql": "^15.5.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-final-form": "^6.5.3",
+        "react-router-dom": "^5.2.1",
         "react-scripts": "4.0.3",
         "styled-components": "^5.3.1",
         "typescript": "^4.1.2",
@@ -28,13 +22,26 @@
         "eject": "react-scripts eject",
         "lint": "eslint \"src/**/*.+(js|jsx|ts|tsx|json)\"",
         "lint-fix": "eslint --fix \"src/**/*.+(js|jsx|ts|tsx|json)\"",
-        "prettier": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json)\""
+        "prettier": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json)\"",
+        "storybook": "start-storybook -p 6006 -s public",
+        "build-storybook": "build-storybook -s public"
     },
     "devDependencies": {
+        "@storybook/addon-actions": "^6.3.8",
+        "@storybook/addon-essentials": "^6.3.8",
+        "@storybook/addon-links": "^6.3.8",
+        "@storybook/node-logger": "^6.3.8",
+        "@storybook/preset-create-react-app": "^3.2.0",
+        "@storybook/react": "^6.3.8",
+        "@svgr/webpack": "^5.5.0",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
         "@types/jest": "^26.0.15",
         "@types/node": "^12.0.0",
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
+        "@types/react-router-dom": "^5.1.8",
         "@types/styled-components": "^5.1.13",
         "@typescript-eslint/eslint-plugin": "^4.16.1",
         "@typescript-eslint/parser": "^4.16.1",
@@ -50,12 +57,23 @@
         "husky": "^4.3.8",
         "lint-staged": "^11.1.2",
         "prettier": "^2.3.2",
-        "redux-devtools-extension": "^2.13.9"
+        "redux-devtools-extension": "^2.13.9",
+        "storybook-addon-apollo-client": "^4.0.9"
     },
     "eslintConfig": {
         "extends": [
             "react-app",
             "react-app/jest"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "**/*.stories.*"
+                ],
+                "rules": {
+                    "import/no-anonymous-default-export": "off"
+                }
+            }
         ]
     },
     "browserslist": {
