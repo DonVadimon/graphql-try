@@ -16,9 +16,13 @@ const root = {
     getAllUsers: () => users,
     getUser: ({ id }) => users.find((user) => user.id === Number(id)),
     createUser: ({ input }) => {
+        const avatar =
+            input.avatar ||
+            'https://sun9-2.userapi.com/impf/c847120/v847120865/12441c/wVW70T08Oas.jpg?size=600x600&quality=96&sign=0475cb87976fd939dab397904e6c2610&type=album';
         const user = {
             id: Date.now(),
             ...input,
+            avatar,
         };
         users.push(user);
         return user;

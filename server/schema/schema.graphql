@@ -1,8 +1,9 @@
 type User {
-  id: ID
-  username: String
-  password: String
-  age: Int
+  id: ID!
+  username: String!
+  password: String!
+  age: Int!
+  avatar: String
 }
 
 type Post {
@@ -17,6 +18,7 @@ input UserInput {
   username: String!
   password: String!
   age: Int!
+  avatar: String
 }
 
 input PostInput {
