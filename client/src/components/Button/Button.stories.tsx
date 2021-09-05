@@ -9,4 +9,4 @@ export default {
     argTypes: {},
 } as Meta;
 
-export const Default: Story = (args) => <Button {...args} >Button</Button>;
+export const Default: Story = (args) => <Button {...args}>Button</Button>;

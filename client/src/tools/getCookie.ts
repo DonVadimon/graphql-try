@@ -3,4 +3,4 @@ export const getCookie = (name: string) => {
         document.cookie,
     );
     return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+};
