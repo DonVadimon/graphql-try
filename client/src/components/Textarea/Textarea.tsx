@@ -7,6 +7,7 @@ export const Textarea = styled.textarea<IErrorStyles>`
     resize: none;
     background: white;
     border: 1px solid ${({ error }) => (error ? 'tomato' : 'white')};
+    box-shadow: ${({ error }) => (error ? '0 0 8px tomato' : 'none')};
     border-radius: 8px;
     outline: none;
     padding: 12px;

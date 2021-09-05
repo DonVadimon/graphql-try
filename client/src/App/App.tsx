@@ -6,6 +6,7 @@ import { Index } from 'pages/Index';
 import { Login } from 'pages/Login';
 import { Posts } from 'pages/Posts';
 import { Register } from 'pages/Register';
+import { UserPage } from 'pages/UserPage';
 
 import { Navbar } from 'components/Navbar';
 
@@ -27,12 +28,7 @@ export const App = () => {
                             <Posts />
                         </Route>
                         <Route path="/user/:userid">
-                            <h1>user by id</h1>
-                            <Switch>
-                                <Route path="/user/:userid/posts">
-                                    <h1>user posts</h1>
-                                </Route>
-                            </Switch>
+                            <UserPage />
                         </Route>
                         <Route path="/login">
                             <Login />

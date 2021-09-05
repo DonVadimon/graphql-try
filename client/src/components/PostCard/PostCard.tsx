@@ -26,7 +26,7 @@ export const PostCard: React.FC<IPostCardProps> = ({ post: { title, content, id,
 
     return (
         <Container>
-            {userId === author && (
+            {(userId === Number(author) || userId === 1) && (
                 <DeleteButton onClick={onDelete}>
                     <Trash />
                 </DeleteButton>

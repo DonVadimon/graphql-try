@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 import { Field, Form } from 'react-final-form';
+import { useHistory } from 'react-router';
 import { useMutation } from '@apollo/client';
 import { Context } from 'context';
 import { FormApi } from 'final-form';
@@ -9,6 +10,7 @@ import { IUser, LoginInput } from 'types/User.types';
 
 import { Button } from 'components/Button';
 import { Input } from 'components/Input';
+import { Spinner } from 'components/Spinner';
 
 import { Container, FormItem } from './LoginForm.styles';
 
@@ -18,9 +20,11 @@ const initialValues: LoginInput = {
 };
 
 export const LoginForm = () => {
-    const [login, { error }] = useMutation<{ login: IUser }, { input: LoginInput }>(LOGIN);
+    const [login, { error, loading }] = useMutation<{ login: IUser }, { input: LoginInput }>(LOGIN);
 
     const { setUserId } = useContext(Context);
+
+    const history = useHistory();
 
     const handleSubmit = useCallback(
         (values: LoginInput, form: FormApi<LoginInput, LoginInput>) => {
@@ -34,14 +38,20 @@ export const LoginForm = () => {
                         setCookie('login', data.data?.login.id.toString());
                         setUserId(Number(data.data?.login.id.toString()));
                     }
+                    return Number(data.data?.login.id);
                 })
-                .then(() => form.reset())
-                .catch((err) => console.error(err));
+                .then((id) => history.push(`/user/${id}`))
+                .catch((err) => {
+                    form.reset();
+                    console.error(err);
+                });
         },
-        [error, login, setUserId],
+        [error, history, login, setUserId],
     );
 
-    return (
+    return loading ? (
+        <Spinner />
+    ) : (
         <Form initialValues={initialValues} onSubmit={handleSubmit}>
             {({ handleSubmit }) => (
                 <Container>

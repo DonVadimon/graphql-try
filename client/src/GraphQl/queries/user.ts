@@ -11,6 +11,27 @@ export const GET_ALL_USERS = gql`
             id
             username
             age
+            avatar
+        }
+    }
+`;
+
+export const GET_USER = gql`
+    query getUser($id: ID) {
+        getUser(id: $id) {
+            username
+            avatar
+            age
+            id
+        }
+    }
+`;
+
+export const GET_USER_MIN_INFO = gql`
+    query getUser($id: ID) {
+        getUser(id: $id) {
+            username
+            avatar
         }
     }
 `;

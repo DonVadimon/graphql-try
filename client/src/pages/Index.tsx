@@ -7,6 +7,8 @@ export const Index = () => (
     <>
         <h1>Community</h1>
         <UserList />
-        <StyledLink to="https://reactjs.org">Learn React</StyledLink>
+        <StyledLink href="https://vk.com/pudge1stpick" target="_blank">
+            Creator
+        </StyledLink>
     </>
 );

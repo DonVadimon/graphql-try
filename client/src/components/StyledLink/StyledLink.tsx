@@ -1,12 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { StyledLink as StyledComponent } from './StyledLink.styles';
-
-export const StyledLink: React.FC<{ to: string }> = ({ to, children }) => {
-    return (
-        <Link to={to}>
-            <StyledComponent>{children}</StyledComponent>
-        </Link>
-    );
-};
+export const StyledLink = styled.a`
+    margin: 0;
+    width: fit-content;
+    color: #61dafb;
+    font-size: 24px;
+    text-decoration: underline;
+`;

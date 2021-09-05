@@ -5,13 +5,14 @@ export const Container = styled.div`
     width: 100vw;
     justify-content: space-between;
     align-items: center;
-    background: teal;
+    background: #01cece;
     color: white;
+    margin-bottom: 20px;
 `;
 
 export const Item = styled.div`
     padding: 8px;
-    height: 100%;
+    height: 100px;
     width: 100%;
     background: #01cece;
     transition: all linear 100ms;
@@ -25,4 +26,8 @@ export const Item = styled.div`
     &:hover {
         background: #0cb6b6;
     }
+`;
+
+export const Username = styled.h3`
+    margin: 0 0 0 12px;
 `;
