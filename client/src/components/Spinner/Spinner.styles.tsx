@@ -11,10 +11,11 @@ const Spin = keyframes`
 
 export const IconContainer = styled.div`
     height: 400px;
+    width: 400px;
     pointer-events: none;
-    animation: ${Spin} infinite 20s linear;
+    animation: ${Spin} infinite 10s linear;
 
-    svg {
+    img {
         width: inherit;
         height: inherit;
     }

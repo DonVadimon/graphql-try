@@ -20,6 +20,7 @@ export const Item = styled.div`
     justify-content: center;
     align-items: center;
     font-size: 24px;
+    user-select: none;
 
     &:hover {
         background: #0cb6b6;

@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { useMutation } from '@apollo/client';
 import { Trash } from 'assets';
+import { Context } from 'context';
 import { DELETE_USER } from 'GraphQl/mutations/user';
 
 import { DeleteButton } from 'components/DeleteButton';
@@ -21,14 +22,18 @@ export const UserCard: React.FC<IUserCardProps> = ({ user: { username, age, id }
         [deleteUser, id],
     );
 
+    const { userId } = useContext(Context);
+
     return (
         <Container>
             <h1>
                 {username}, {age} лет. Пошлый
             </h1>
-            <DeleteButton onClick={onDelete}>
-                <Trash />
-            </DeleteButton>
+            {userId === 1 && (
+                <DeleteButton onClick={onDelete}>
+                    <Trash />
+                </DeleteButton>
+            )}
         </Container>
     );
 };

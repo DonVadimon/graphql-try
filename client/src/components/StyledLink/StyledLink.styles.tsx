@@ -5,4 +5,5 @@ export const StyledLink = styled.p`
     width: fit-content;
     color: #61dafb;
     font-size: 24px;
+    text-decoration: underline;
 `;

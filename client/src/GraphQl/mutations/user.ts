@@ -19,3 +19,13 @@ export const DELETE_USER = gql`
         }
     }
 `;
+
+export const LOGIN = gql`
+    mutation login($input: LoginInput) {
+        login(input: $input) {
+            username
+            age
+            id
+        }
+    }
+`;

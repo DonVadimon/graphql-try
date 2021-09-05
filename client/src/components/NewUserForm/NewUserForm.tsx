@@ -5,9 +5,11 @@ import { FormApi } from 'final-form';
 import { CREATE_USER } from 'GraphQl/mutations/user';
 import { UserInput } from 'types/User.types';
 
+import { Button } from 'components/Button';
 import { Counter } from 'components/Counter';
+import { Input } from 'components/Input';
 
-import { Button, FormItem, Input, StyledForm } from './NewUserForm.styles';
+import { FormItem, StyledForm } from './NewUserForm.styles';
 
 const initialValues: UserInput = {
     username: '',
@@ -42,7 +44,13 @@ export const NewUserForm = () => {
                     <Field<string> name="username" validate={validateText}>
                         {({ input, meta }) => (
                             <FormItem>
-                                <Input error={!!meta.error && meta.touched} type="text" autoComplete="off" {...input} />
+                                <Input
+                                    placeholder="Username"
+                                    error={!!meta.error && meta.touched}
+                                    type="text"
+                                    autoComplete="off"
+                                    {...input}
+                                />
                             </FormItem>
                         )}
                     </Field>
@@ -50,6 +58,7 @@ export const NewUserForm = () => {
                         {({ input, meta }) => (
                             <FormItem>
                                 <Input
+                                    placeholder="Password"
                                     error={!!meta.error && meta.touched}
                                     type="password"
                                     autoComplete="off"
@@ -71,7 +80,7 @@ export const NewUserForm = () => {
                         )}
                     </Field>
                     <Button type="button" onClick={handleSubmit}>
-                        Register new User
+                        Register
                     </Button>
                 </StyledForm>
             )}

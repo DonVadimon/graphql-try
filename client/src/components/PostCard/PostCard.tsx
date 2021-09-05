@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { useMutation } from '@apollo/client';
 import { Trash } from 'assets';
+import { Context } from 'context';
 import { DELETE_POST } from 'GraphQl/mutations/posts';
 
 import { DeleteButton } from 'components/DeleteButton';
@@ -8,7 +9,7 @@ import { DeleteButton } from 'components/DeleteButton';
 import { Container, Content, Title } from './PostCard.styles';
 import { IPostCardProps } from './PostCard.types';
 
-export const PostCard: React.FC<IPostCardProps> = ({ post: { title, content, id } }) => {
+export const PostCard: React.FC<IPostCardProps> = ({ post: { title, content, id, author } }) => {
     const [deletePost] = useMutation(DELETE_POST);
 
     const onDelete = useCallback(
@@ -21,11 +22,15 @@ export const PostCard: React.FC<IPostCardProps> = ({ post: { title, content, id 
         [deletePost, id],
     );
 
+    const { userId } = useContext(Context);
+
     return (
         <Container>
-            <DeleteButton onClick={onDelete}>
-                <Trash />
-            </DeleteButton>
+            {userId === author && (
+                <DeleteButton onClick={onDelete}>
+                    <Trash />
+                </DeleteButton>
+            )}
             <Title>{title}</Title>
             <Content>{content}</Content>
         </Container>

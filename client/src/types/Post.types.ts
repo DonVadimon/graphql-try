@@ -6,3 +6,5 @@ export interface IPost {
     title: string;
     content: string;
 }
+
+export type PostInput = Omit<IPost, 'id'>;

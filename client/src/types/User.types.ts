@@ -8,3 +8,5 @@ export interface IUser {
 }
 
 export type UserInput = Omit<IUser, 'id'>;
+
+export type LoginInput = Omit<UserInput, 'age'>;

@@ -9,7 +9,7 @@ import { Spinner } from 'components/Spinner';
 import { Container, ListItem } from './PostList.styles';
 
 export const PostList = () => {
-    const { data, loading, error } = useQuery<IGetAllPostsResp>(GET_ALL_POSTS);
+    const { data, loading, error } = useQuery<IGetAllPostsResp>(GET_ALL_POSTS, { pollInterval: 1000 });
 
     return (
         <Container>

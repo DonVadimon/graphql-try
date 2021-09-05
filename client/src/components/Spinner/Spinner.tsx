@@ -1,10 +1,10 @@
 import React from 'react';
-import { Logo } from 'assets';
+import { Axoops } from 'assets';
 
 import { IconContainer } from './Spinner.styles';
 
 export const Spinner = React.memo(() => (
     <IconContainer>
-        <Logo />
+        <img src={Axoops} alt="don_vadimon" />
     </IconContainer>
 ));

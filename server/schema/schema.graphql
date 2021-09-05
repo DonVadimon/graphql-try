@@ -34,6 +34,7 @@ input LoginInput {
 type Mutation {
   createUser(input: UserInput): User
   deleteUser(id: ID): User
+  login(input: LoginInput): User
 }
 
 type Query {
@@ -42,7 +43,6 @@ type Query {
   getAllPosts: [Post]
   getPost(id: ID): Post
   getUserPosts(author: ID): [Post]
-  login(input: LoginInput): User
 }
 
 type Mutation {
